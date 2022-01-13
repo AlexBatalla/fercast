@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:insert="fragments/plantilla_main :: main-head"></th:block>
+    <meta charset="UTF-8">
+    <title>Fercast</title>
+    <link rel ="stylesheet" th:href="@{/css/main.css}"/>
 </head>
 <body>
-    <header th:replace="fragments/plantilla_main :: header"></header>
+<h1 class="prueba">FERCAST</h1>
 
-    <h1 class="prueba">FERCAST</h1>
-    <footer th:replace="fragments/plantilla_main :: footer"></footer>
+<h1 class="prueba" th:text="#{text.prueba}">Prueba internacionalización</h1>
 </body>
 </html>

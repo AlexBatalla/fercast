@@ -19,27 +19,23 @@ public class Articulo implements Serializable {
     private String imagen;
     private Proveedor proveedor;
     private Subcategoria subcategoria;
-    private List<Novedad>novedades;
-    private List<Oferta>ofertas;
-    private List<DetalleFactura> detalleFacturas;
-    private List<DetalleAlbaran>detalleAlbaranes;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {return id;}
-    public void setId(Integer id) {this.id = id;}
+    public void setId(Integer id) { this.id = id;}
 
     @NotBlank
-    @Column(unique = true, nullable = false, length = 15)
-    public String getRef() {return ref;}
-    public void setRef(String ref) {this.ref = ref;}
+    @Column(unique = true, nullable = false, length=15)
+    public String getRef() { return ref;}
+    public void setRef(String ref) { this.ref = ref;}
 
     @NotBlank
-    @Column(unique = true, nullable = false, length = 15)
-    public String getDescripcion() {return descripcion;}
+    @Column(nullable = false, length=75)
+    public String getDescripcion() { return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
-    public Double getPrecio() {return precio;}
+    public Double getPrecio() { return precio;}
     public void setPrecio(Double precio) {this.precio = precio;}
 
     public Double getIva() {return iva;}
@@ -62,22 +58,7 @@ public class Articulo implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_subcategoria", nullable = false)
-    public Subcategoria getSubcategoria() {return subcategoria;}
-    public void setSubcategoria(Subcategoria subcategoria) {this.subcategoria = subcategoria;}
-
-    @OneToMany(mappedBy = "articulo")
-    public List<DetalleFactura> getDetalleFacturas() {return detalleFacturas;}
-    public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {this.detalleFacturas = detalleFacturas;}
-
-    @OneToMany(mappedBy = "articulo")
-    public List<Novedad> getNovedades() {return novedades;}
-    public void setNovedades(List<Novedad> novedades) {this.novedades = novedades;}
-
-    @OneToMany(mappedBy = "articulo")
-    public List<Oferta> getOfertas() {return ofertas;}
-    public void setOfertas(List<Oferta> ofertas) {this.ofertas = ofertas;}
-
-    @OneToMany(mappedBy = "articulo")
-    public List<DetalleAlbaran> getDetalleAlbaranes() {return detalleAlbaranes;}
-    public void setDetalleAlbaranes(List<DetalleAlbaran> detalleAlbaranes) {this.detalleAlbaranes = detalleAlbaranes;}
+    public Subcategoria getSubcategoria() { return subcategoria;}
+    public void setSubcategoria(Subcategoria subcategoria) { this.subcategoria = subcategoria;}
 }
+
