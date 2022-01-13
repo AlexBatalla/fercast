@@ -3,6 +3,7 @@ package com.daw2.fercast.model.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -18,6 +19,8 @@ public class Articulo implements Serializable {
     private String imagen;
     private Proveedor proveedor;
     private Subcategoria subcategoria;
+    private List<Oferta> oferta;
+    private List<Novedad> novedad;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,4 +62,10 @@ public class Articulo implements Serializable {
     @JoinColumn(name = "id_subcategoria", nullable = false)
     public Subcategoria getSubcategoria() {return subcategoria;}
     public void setSubcategoria(Subcategoria subcategoria) {this.subcategoria = subcategoria;}
+
+    @OneToMany(mappedBy = "articulo")//FK en articulos
+    public List<Oferta> getOferta() {return oferta;}
+    public void setOferta(List<Oferta> oferta) {this.oferta = oferta;}
+
+
 }
