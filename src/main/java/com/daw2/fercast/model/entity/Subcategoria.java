@@ -15,6 +15,7 @@ public class Subcategoria implements Serializable {
     private String descripcion;
     private Double iva;
     private Categoria categoria;
+    private List<Articulo> articulos;
 
 
     @Id
@@ -58,6 +59,14 @@ public class Subcategoria implements Serializable {
     }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    @OneToMany(mappedBy = "subcategoria")
+    public List<Articulo> getArticulos() {
+        return articulos;
+    }
+    public void setArticulos(List<Articulo> articulos) {
+        this.articulos = articulos;
     }
 
 

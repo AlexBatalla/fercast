@@ -14,6 +14,7 @@ public class Categoria implements Serializable {
     private String ref;
     private String descripcion;
     private Double iva;
+    private List<Subcategoria> subcategorias;
 
 
     @Id
@@ -49,6 +50,10 @@ public class Categoria implements Serializable {
     public void setIva(Double iva) {
         this.iva = iva;
     }
+
+    @OneToMany(mappedBy = "categoria")
+    public List<Subcategoria> getSubcategorias() {return subcategorias;}
+    public void setSubcategorias(List<Subcategoria> subcategorias) {this.subcategorias = subcategorias;}
 
 
 }
