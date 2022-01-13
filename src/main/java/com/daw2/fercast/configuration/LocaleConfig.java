@@ -14,15 +14,14 @@ public class LocaleConfig {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(new Locale("es","ES"));
+        localeResolver.setDefaultLocale(new Locale("es", "ES"));
         return localeResolver;
     }
 
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor localeChangeInterceptor =
-                new LocaleChangeInterceptor();
-        localeChangeInterceptor.setParamName("lang");
+        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName("lang"); //Se pasa por url ej lang=ES
         return localeChangeInterceptor;
     }
 }
