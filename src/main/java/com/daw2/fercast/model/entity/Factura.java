@@ -46,6 +46,7 @@ public class Factura implements Serializable {
     public Date getCreateAt() {return createAt;}
     public void setCreateAt(Date createAt) {this.createAt = createAt;}
 
+
     @OneToMany(mappedBy = "factura")
     public List<DetalleFactura> getDetalleFacturas() {
         return detalleFacturas;
