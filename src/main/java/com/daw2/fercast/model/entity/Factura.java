@@ -6,16 +6,18 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 @Table(name = "facturas")
 public class Factura implements Serializable {
     private Integer id;
-    private String numero;
+    private Double numero;
     private Date fecha;
-    //    private Cliente cliente;
     private Date createAt;
-    private Date modifiedAt;
     private List<DetalleFactura> detalleFacturas;
+
+    @PrePersist
+    public void init() {fecha = new Date();}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,39 +26,33 @@ public class Factura implements Serializable {
 
     @NotBlank
     @Column(unique = true, nullable = false, length = 12)
-    public String getNumero() {return numero;}
-    public void setNumero(String numero) {this.numero = numero;}
+    public Double getNumero() {return numero;}
+    public void setNumero(Double numero) {this.numero = numero;}
 
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    public Date getFecha() {return fecha;}
-    public void setFecha(Date fecha) {this.fecha = fecha;}
-
-   /* @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
-    public Cliente getCliente() {return cliente;}
-    public void setCliente(Cliente cliente) {this.cliente = cliente;}*/
-
-    @PrePersist
-    public void init() {
-        createAt = new Date();
+    public Date getFecha() {
+        return fecha;
+    }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    public Date getCreateAt() {return createAt;}
-    public void setCreateAt(Date createAt) {this.createAt = createAt;}
-
-    @Column(name = "modified_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date getModifiedAt() {return modifiedAt;}
-    public void setModifiedAt(Date modifiedAt) {this.modifiedAt = modifiedAt;}
+    public Date getCreateAt() {
+        return createAt;
+    }
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
 
     @OneToMany(mappedBy = "factura")
-    public List<DetalleFactura> getDetalleFacturas() {
-        return detalleFacturas;
-    }
-    public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {
-        this.detalleFacturas = detalleFacturas;
-    }
+    public List<DetalleFactura> getDetalleFacturas() {return detalleFacturas;}
+    public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {this.detalleFacturas = detalleFacturas;}
+
 }
+
+
+
+
