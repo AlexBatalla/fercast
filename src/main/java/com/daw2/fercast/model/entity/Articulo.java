@@ -19,8 +19,9 @@ public class Articulo implements Serializable {
     private String imagen;
     private Proveedor proveedor;
     private Subcategoria subcategoria;
-    private List<Oferta> oferta;
-    private List<Novedad> novedad;
+    private List<Novedad>novedad;
+    private List<Oferta>oferta;
+    private List<DetalleFactura> detalleFacturas;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,9 +64,15 @@ public class Articulo implements Serializable {
     public Subcategoria getSubcategoria() {return subcategoria;}
     public void setSubcategoria(Subcategoria subcategoria) {this.subcategoria = subcategoria;}
 
-    @OneToMany(mappedBy = "articulo")//FK en articulos
+    @OneToMany(mappedBy = "articulo")
+    public List<Novedad> getNovedad() {return novedad;}
+    public void setNovedad(List<Novedad> novedad) {this.novedad = novedad;}
+
+    @OneToMany(mappedBy = "articulo")
     public List<Oferta> getOferta() {return oferta;}
     public void setOferta(List<Oferta> oferta) {this.oferta = oferta;}
 
-
+    @OneToMany(mappedBy = "articulo")
+    public List<DetalleFactura> getDetalleFacturas() {return detalleFacturas;}
+    public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {this.detalleFacturas = detalleFacturas;}
 }
