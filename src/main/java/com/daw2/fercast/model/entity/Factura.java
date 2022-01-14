@@ -14,6 +14,7 @@ public class Factura implements Serializable {
     private Date fecha;
     //    private Cliente cliente;
     private Date createAt;
+    private Date modifiedAt;
     private List<DetalleFactura> detalleFacturas;
 
     @Id
@@ -46,6 +47,10 @@ public class Factura implements Serializable {
     public Date getCreateAt() {return createAt;}
     public void setCreateAt(Date createAt) {this.createAt = createAt;}
 
+    @Column(name = "modified_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getModifiedAt() {return modifiedAt;}
+    public void setModifiedAt(Date modifiedAt) {this.modifiedAt = modifiedAt;}
 
     @OneToMany(mappedBy = "factura")
     public List<DetalleFactura> getDetalleFacturas() {

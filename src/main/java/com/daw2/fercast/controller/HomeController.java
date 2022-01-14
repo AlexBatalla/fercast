@@ -19,7 +19,7 @@ public class HomeController {
    private MessageSource messageSource;
     @GetMapping
     public String home(Model model, Locale locale){
-        model.addAttribute("test",messageSource.getMessage("text.prueba",null,locale));
+       // model.addAttribute("test",messageSource.getMessage("text.prueba",null,locale));
 
 
         return "index";
