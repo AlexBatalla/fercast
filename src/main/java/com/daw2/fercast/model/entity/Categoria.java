@@ -12,7 +12,7 @@ public class Categoria implements Serializable {
     private Integer ref;
     private Integer descripcion;
     private Double iva;
-    private List<Subcategoria> subcategoria;
+    private List<Subcategoria> subcategorias;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +33,6 @@ public class Categoria implements Serializable {
     public void setIva(Double iva) {this.iva = iva;}
 
     @OneToMany(mappedBy = "categoria")//FK en categoria
-    public List<Subcategoria> getSubcategoria() {return subcategoria;}
-    public void setSubcategoria(List<Subcategoria> subcategoria) {this.subcategoria = subcategoria;}
+    public List<Subcategoria> getSubcategoria() {return subcategorias;}
+    public void setSubcategoria(List<Subcategoria> subcategorias) {this.subcategorias = subcategorias;}
 }
