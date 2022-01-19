@@ -19,9 +19,10 @@ public class Articulo implements Serializable {
     private String imagen;
     private Proveedor proveedor;
     private Subcategoria subcategoria;
-    private List<Novedad>novedad;
-    private List<Oferta>oferta;
+    private List<Novedad>novedades;
+    private List<Oferta>ofertas;
     private List<DetalleFactura> detalleFacturas;
+    private List<DetalleAlbaran>detalleAlbaranes;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,14 +66,18 @@ public class Articulo implements Serializable {
     public void setSubcategoria(Subcategoria subcategoria) {this.subcategoria = subcategoria;}
 
     @OneToMany(mappedBy = "articulo")
-    public List<Novedad> getNovedad() {return novedad;}
-    public void setNovedad(List<Novedad> novedad) {this.novedad = novedad;}
-
-    @OneToMany(mappedBy = "articulo")
-    public List<Oferta> getOferta() {return oferta;}
-    public void setOferta(List<Oferta> oferta) {this.oferta = oferta;}
-
-    @OneToMany(mappedBy = "articulo")
     public List<DetalleFactura> getDetalleFacturas() {return detalleFacturas;}
     public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {this.detalleFacturas = detalleFacturas;}
+
+    @OneToMany(mappedBy = "articulo")
+    public List<Novedad> getNovedades() {return novedades;}
+    public void setNovedades(List<Novedad> novedades) {this.novedades = novedades;}
+
+    @OneToMany(mappedBy = "articulo")
+    public List<Oferta> getOfertas() {return ofertas;}
+    public void setOfertas(List<Oferta> ofertas) {this.ofertas = ofertas;}
+
+    @OneToMany(mappedBy = "articulo")
+    public List<DetalleAlbaran> getDetalleAlbaranes() {return detalleAlbaranes;}
+    public void setDetalleAlbaranes(List<DetalleAlbaran> detalleAlbaranes) {this.detalleAlbaranes = detalleAlbaranes;}
 }

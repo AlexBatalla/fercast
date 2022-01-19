@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/images/logo.jpg}" style="width: 50px;" alt="Logo"/>Fercast</a>
+                <img th:src="@{/images/logo.jpg}" style="width: 50px;" alt="Logo"/>Administracion</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,24 +30,16 @@
                            th:text="#{menu.text.ofertas}">Ofertas</a>
                     </li>
                     <li>
-                        <a class="nav-link" th:href="@{/novedades}"
-                           th:classappend="${#request.getServletPath() == '/novedades' ? 'active' : ''}"
-                           th:text="#{menu.text.novedades}">Novedades</a>
+                        <a class="nav-link " th:href="@{/novedades}" th:text="#{menu.text.novedades}">Novedades</a>
                     </li>
                     <li>
-                        <a class="nav-link" th:href="@{/mas-vendidos}"
-                           th:classappend="${#request.getServletPath() == '/mas-vendidos' ? 'active' : ''}"
-                           th:text="#{menu.text.masVendidos}">Ofertas</a>
+                        <a class="nav-link " th:href="@{/mas-vendidos}" th:text="#{menu.text.masVendidos}">Más vendidos</a>
                     </li>
                     <li>
-                        <a class="nav-link" th:href="@{/categorias}"
-                           th:classappend="${#request.getServletPath() == '/categorias' ? 'active' : ''}"
-                           th:text="#{menu.text.categorias}">Categorias</a>
+                        <a class="nav-link " th:href="@{/categorias}" th:text="#{menu.text.categorias}">Categorías</a>
                     </li>
                     <li>
-                        <a class="nav-link" th:href="@{/admin}"
-                           th:classappend="${#request.getServletPath() == '/admin' ? 'active' : ''}"
-                           th:text="#{menu.text.administracion}">Administracion</a>
+                        <a class="nav-link " th:href="@{/administracion}" th:text="#{menu.text.administracion}">Administración</a>
                     </li>
                 </ul>
                 <div class="btn-group dropstart ps-1">

@@ -11,7 +11,7 @@ public class LogPage implements Serializable {
     private String username;
     private String ip;
     private String page;
-    private String  codOperation;
+    private String codOperation;
     private String descripcion;
     private Date createAt;
 
@@ -25,10 +25,6 @@ public class LogPage implements Serializable {
     public Integer getId() {return id;}
     public void setId(Integer id) {this.id = id;}
 
-
-    public String getUsername() {return username;}
-    public void setUsername(String username) {this.username = username;}
-
     public String getIp() {
         return ip;
     }
@@ -37,20 +33,19 @@ public class LogPage implements Serializable {
         this.ip = ip;
     }
 
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
+
     public String getPage() {return page;}
     public void setPage(String page) {this.page = page;}
 
-    public String getCodOperation() {
-        return codOperation;
-    }
-
-    public void setCodOperation(String codOperation) {
-        this.codOperation = codOperation;
-    }
+    public String getCodOperation() {return codOperation;}
+    public void setCodOperation(String codOperation) {this.codOperation = codOperation;}
 
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
     public Date getCreateAt() {return createAt;}
     public void setCreateAt(Date createAt) {this.createAt = createAt;}
+
 }
