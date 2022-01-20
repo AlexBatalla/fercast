@@ -9,8 +9,9 @@ import java.util.Date;
 public class LogPage implements Serializable {
     private Integer id;
     private String username;
+    private String ip;
     private String page;
-    private String  codOpercion;
+    private String  codOperation;
     private String descripcion;
     private Date createAt;
 
@@ -24,14 +25,28 @@ public class LogPage implements Serializable {
     public Integer getId() {return id;}
     public void setId(Integer id) {this.id = id;}
 
+
     public String getUsername() {return username;}
     public void setUsername(String username) {this.username = username;}
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public String getPage() {return page;}
     public void setPage(String page) {this.page = page;}
 
-    public String getCodOpercion() {return codOpercion;}
-    public void setCodOpercion(String codOpercion) {this.codOpercion = codOpercion;}
+    public String getCodOperation() {
+        return codOperation;
+    }
+
+    public void setCodOperation(String codOperation) {
+        this.codOperation = codOperation;
+    }
 
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}

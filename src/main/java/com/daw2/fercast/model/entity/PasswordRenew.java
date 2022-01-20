@@ -6,6 +6,8 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
+@Table(name = "password_renews")
 public class PasswordRenew implements Serializable {
     private Integer id;
     private String codigoSolicitud;

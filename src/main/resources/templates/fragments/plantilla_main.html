@@ -1,91 +1,90 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
-    <th:block th:fragment="main-head">
-        <meta charset="UTF-8">
-        <title th:text="#{app.title}"></title>
-        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-        <link rel="stylesheet" th:href="@{/css/main.css}">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/boosttrap-icons.css">
-        <script defer th:src="@{/js/popper.min.js}"></script>
-        <script defer th:src="@{/js/bootstrap.min.js}"></script>
-        <script defer th:src="@{/js/main.js}"></script>
-    </th:block>
-
-    <header th:fragment="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img th:src="@{/images/martillo.png}" style="width: 20px"/> Fercast</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+<th:block th:fragment="main-head">
+    <meta charset="UTF-8">
+    <title th:text="#{app.title}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <script defer th:src="@{/js/popper.min.js}"></script>
+    <script defer th:src="@{/js/bootstrap.min.js}"></script>
+    <script defer th:src="@{/js/main.js}"></script>
+</th:block>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/logo.png}" style="width: 50px;" alt="Logo"/>Fercast</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" th:href="@{/}" th:text="#{menu.text.inicio}">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/ofertas}"
+                           th:classappend="${#request.getServletPath() == '/ofertas' ? 'active' : ''}"
+                           th:text="#{menu.text.ofertas}">Ofertas</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/novedades}"
+                           th:classappend="${#request.getServletPath() == '/novedades' ? 'active' : ''}"
+                           th:text="#{menu.text.novedades}">Novedades</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/mas_vendidos}"
+                           th:classappend="${#request.getServletPath() == '/mas_vendidos' ? 'active' : ''}"
+                           th:text="#{menu.text.masVendidos}">Más vendidos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/categorias}"
+                           th:classappend="${#request.getServletPath() == '/categorias' ? 'active' : ''}"
+                           th:text="#{menu.text.categorias}">Categorías</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="@{/admin}"
+                           th:classappend="${#request.getServletPath() == '/admin' ? 'active' : ''}"
+                           th:text="#{menu.text.administracion}">Administración</a>
+                    </li>
+                </ul>
+                <div class="btn-group dropstart ps-1">
+                    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img th:src="@{/images/__${#locale}__.png}" class="ps-1" style="width: 25px" th:title="${#locale}"/>
+                        <!--<span th:text="${#locale}">Idioma</span>-->
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#" th:text="#{menu.text.inicio}">
-
+                            <a class="nav-link" th:href="@{/locale(lang=es_ES)}">
+                                <img th:src="@{/images/es_ES.png}" class="pe-1" style="width: 20px" th:title="${#locale}"/>Español
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" th:text="#{menu.text.ofertas}"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" th:text="#{menu.text.novedades}"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" th:text="#{menu.text.masVendido}"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"  th:text="#{menu.text.categorias}"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#" th:text="#{menu.text.administracion}"></a>
+                            <!--<a class="nav-link" th:href="@{/locale(lang=es_ES)}" th:text="#{text.espanol}">Español</a>-->
+                            <a class="nav-link" th:href="@{/locale(lang=en_EN)}">
+                                <img th:src="@{/images/en_EN.png}" class="pe-1" style="width: 20px" th:title="${#locale}"/>Inglés
+                            </a>
+                            <!--<a class="nav-link" th:href="@{/locale(lang=en_EN)}" th:text="#{text.ingles}">Inglés</a>-->
+                            <a class="nav-link" th:href="@{/locale(lang=pt_PT)}">
+                                <img th:src="@{/images/pt_PT.png}" class="pe-1" style="width: 20px" th:title="${#locale}"/>Portugués
+                            </a>
+                            <!--<a class="nav-link" th:href="@{/locale(lang=pt_PT)}" th:text="#{text.portugues}">Portugués</a>-->
+                            <a class="nav-link" th:href="@{/locale(lang=fr_FR)}">
+                                <img th:src="@{/images/fr_FR.png}" class="pe-1" style="width: 20px" th:title="${#locale}"/>Francés
+                            </a>
+                            <!--<a class="nav-link" th:href="@{/locale(lang=fr_FR)}" th:text="#{text.frances}">Francés</a>-->
                         </li>
                     </ul>
-                    <div class="btn-group dropstart ps-1">
-                        <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                            <img th:src="@{images/__${#locale}__.png}" class="ps-1" style="width: 25px";
-                                 th:title="${#locale}"/>
-<!--                            <span th:text="${#locale}">Idioma</span>-->
-                        </button>
-                        <ul class="dropdown-menu " role="menu">
-                            <li class="nav-item">
-                             <a class="nav-link" th:href="@{/locale(lang=es_ES)}">
-                                    <img th:src="@{/images/es_ES.png}" class="pe-1" style="width: 20px";
-                                         th:title="${#locale}"/>Español</a>
-<!--                                <a class="nav-link" th:href="@{/locale(lang=es_ES)}">Español</a>-->
-                            </li>
-                            <li class="nav-item">
-                                                        <a class="nav-link" th:href="@{/locale(lang=en_EN)}">
-                                                                    <img th:src="@{/images/en_EN.png}" class="pe-1" style="width: 20px";
-                                                                         th:title="${#locale}"/>Ingles</a>
-<!--                                <a class="nav-link" th:href="@{/locale(lang=en_EN)}">Ingles</a>-->
-                            </li>
-                            <li class="nav-item">
-                                                               <a class="nav-link" th:href="@{/locale(lang=pt_PT)}">
-                                                                    <img th:src="@{/images/pt_PT.png}" class="pe-1" style="width: 20px";
-                                                                         th:title="${#locale}"/>Portugues</a>
-                                <!--  <a class="nav-link" th:href="@{/locale(lang=pt_PT)}">Portugues</a>-->
-                             </li>
-                             <li class="nav-item">
-                                                               <a class="nav-link" th:href="@{/locale(lang=fr_FR)}">
-                                                                     <img th:src="@{/images/fr_FR.png}" class="pe-1" style="width: 20px";
-                                                                          th:title="${#locale}"/>Frances</a>
-                                 <!--    <a class="nav-link" th:href="@{/locale(lang=fr_FR)}">Frances</a>>-->
-                               </li>
-                           </ul>
-
-                       </div>
-
-
-                   </div>
-               </div>
-           </nav>
-       </header>
-
-   <footer th:fragment="footer">
-   </footer>
-
-   </html>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<footer th:fragment="footer">
+    <hr>
+    <div class="bg-light mt-3 p-2">
+        <img th:src="@{/images/logo.png}" style="width: 100px;" alt="Logo"/>
+        &copy; I.E.S. Castelar - Desarrollo de Aplicaciones Web
+    </div>
+</footer>
+</html>

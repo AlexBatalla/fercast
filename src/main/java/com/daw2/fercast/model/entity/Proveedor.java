@@ -23,6 +23,7 @@ public class Proveedor implements Serializable {
     private Date createAt;
     private Date modifiedAt;
     private List<Articulo> articulos;
+    private List<Albaran> albaranes;
 
     @PrePersist
     public void init() {
@@ -83,4 +84,8 @@ public class Proveedor implements Serializable {
     @OneToMany(mappedBy = "proveedor")//FK en proveedores
     public List<Articulo> getArticulos() {return articulos;}
     public void setArticulos(List<Articulo> articulos) {this.articulos = articulos;}
+
+    @OneToMany(mappedBy = "proveedor")
+    public List<Albaran> getAlbaranes() { return albaranes;}
+    public void setAlbaranes(List<Albaran> albaranes) {this.albaranes = albaranes;}
 }

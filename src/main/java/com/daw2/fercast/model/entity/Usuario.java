@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name="usuarios")
 public class Usuario implements Serializable {
     private Integer id;
-    private String username;  // En este proyecto el username serÃ¡ igual al email
+    private String username;  // En este proyecto el username sería igual al email
     private String password;
     private String email;
     private String nombre;
@@ -27,15 +27,8 @@ public class Usuario implements Serializable {
     private Date modifiedAt;
     private List<Rol> roles;
     private List<Register> registers;
-    private List<Cliente> clientes;
-//    private List<PasswordRenew> passwordRenews;
-//
-//
-//
-//    @OneToMany(mappedBy = "usuario")
-//    public List<PasswordRenew> getPasswordRenews() {return passwordRenews;}
-//    public void setPasswordRenews(List<PasswordRenew> passwordRenews) {this.passwordRenews = passwordRenews;}
-
+    private Cliente cliente;
+    private List<PasswordRenew> passwordRenews;
 
 
 
@@ -115,9 +108,11 @@ public class Usuario implements Serializable {
     public List<Register> getRegisters() {return registers;}
     public void setRegisters(List<Register> registers) {this.registers = registers;}
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
+    public Cliente getCliente() {return cliente;}
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
+
     @OneToMany(mappedBy = "usuario")
-    public List<Cliente> getClientes() {return clientes;}
-    public void setClientes(List<Cliente> clientes) {this.clientes = clientes;}
-
-
+    public List<PasswordRenew> getPasswordRenews() {return passwordRenews;}
+    public void setPasswordRenews(List<PasswordRenew> passwordRenews) {this.passwordRenews = passwordRenews;}
 }

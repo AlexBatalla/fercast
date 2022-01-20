@@ -23,7 +23,6 @@ public class Cliente implements Serializable {
     private String email;
     private Date createAt;
     private Date modifiedAt;
-
     private Usuario usuario;
 
 
@@ -83,8 +82,9 @@ public class Cliente implements Serializable {
     public void setModifiedAt(Date modifiedAt) {this.modifiedAt = modifiedAt;}
 
 
-   @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)//Campo obligatorio el optional=false
+    @JoinColumn(name = "id")
+    @MapsId//Enlace por la clave primaria
     public Usuario getUsuario() {return usuario;}
     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 

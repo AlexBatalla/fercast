@@ -31,12 +31,12 @@ public class Register implements Serializable {
     public void setCodigoSolicitud(String codigoSolicitud) {this.codigoSolicitud = codigoSolicitud;}
 
     @Email
-    @Column(length = 75)
+    @Column(length = 75,  nullable = false, unique = true)
     public String getEmail() {return email;}
     public void setEmail(String email) {this.email = email;}
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_usuario", nullable = false, unique = true)
     public Usuario getUsuario() {return usuario;}
     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 
