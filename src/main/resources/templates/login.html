@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/plantilla_main :: main-head"></th:block>
+</head>
+<body>
+<header th:replace="fragments/plantilla_main :: header"></header>
+<div class="container bg-dark  mt-3 rounded p-5">
+    <form class="form-signin" method="post">
+        <h2 class="form-signin-heading text-white"  th:text="#{menu.text.login}">Inicio Sesión</h2>
+        <p>
+            <label for="username" class="sr-only text-white">Nombre de Usuario</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only text-white">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block float-end" type="submit">Sign in</button>
+    </form>
+</div>
+<footer th:replace="fragments/plantilla_main :: footer"></footer>
+</body>
+</html>

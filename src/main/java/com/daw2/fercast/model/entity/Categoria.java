@@ -20,7 +20,7 @@ public class Categoria implements Serializable {
     public void setId(Integer id) {this.id = id;}
 
     @NotBlank
-    @Column(unique = true,nullable = false,length = 10)
+    @Column(unique = true,nullable = false,length = 12)
     public Integer getRef() {return ref;}
     public void setRef(Integer ref) {this.ref = ref;}
 
