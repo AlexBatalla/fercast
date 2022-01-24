@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/plantilla_main :: main-head"></th:block>
+</head>
+<body>
+<header th:replace="fragments/plantilla_main :: header"></header>
+
+<h1 class="prueba" th:text="#{menu.text.proveedores}">Proveedores</h1>
+<footer th:replace="fragments/plantilla_main :: footer"></footer>
+</body>
+</html>
